@@ -1,0 +1,28 @@
+table {
+  border-collapse: collapse;
+}
+
+table td {
+  padding: 0.5rem;
+  border: 1px solid black;
+}
+
+table th {
+  padding: 0.5rem;
+  border: 1px solid black;
+  text-transform: capitalize;
+}
+
+main {
+  display: flex;
+  gap: 50px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}

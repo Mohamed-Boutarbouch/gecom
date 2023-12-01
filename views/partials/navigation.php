@@ -12,3 +12,6 @@
     <li><a href="/bons_livraisons">Bon Livraison</a></li>
   </ul>
 </nav>
+<p>
+  <a href="/<?= $section ?>/creer">Ajouter</a>
+</p>

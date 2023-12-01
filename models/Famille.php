@@ -27,9 +27,16 @@ class Famille
     return $fieldValues;
   }
 
-  public function getAllFamilles()
+  public function getTotalFamilleCount()
   {
-    return $this->db->query('SELECT * FROM famille')->fetchAll();
+    return $this->db->query("SELECT COUNT(*) FROM famille")->fetchColumn();
+  }
+
+  public function getAllFamilles($page = 1, $perPage = 10)
+  {
+    $offset = ($page - 1) * $perPage;
+    $query = "SELECT * FROM famille LIMIT $perPage OFFSET $offset";
+    return $this->db->query($query)->fetchAll();
   }
 
   public function getFamilleById($id)

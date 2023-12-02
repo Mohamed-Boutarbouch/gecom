@@ -1,11 +1,6 @@
 <?php
 $startPage = max(1, $currentPage - floor($perPage / 2));
 $endPage = min($totalPages, $startPage + $perPage - 1);
-
-function isFamilleSection($section)
-{
-  return $section !== 'familles' ? $section : '';
-}
 ?>
 
 <div class="pagination">

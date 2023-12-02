@@ -27,12 +27,22 @@ $routes = [
 
   /* Article routes */
   '/articles' => 'controllers/article/index.php',
+  '/articles/creer' => 'controllers/article/create.php',
+  '/articles/enregistrer' => 'controllers/article/store.php',
+  '/articles/editer' => 'controllers/article/edit.php',
+  '/articles/modifier' => 'controllers/article/update.php',
+  '/articles/supprimer' => 'controllers/article/destroy.php',
 
   /* Bon Livraison routes */
   '/bons_livraisons' => 'controllers/article/index.php',
 
   /* Reglement routes */
-  '/reglements' => 'controllers/reglement/index.php'
+  '/reglements' => 'controllers/reglement/index.php',
+  // '/reglements/creer' => 'controllers/reglement/create.php',
+  // '/reglements/enregistrer' => 'controllers/reglement/store.php',
+  // '/reglements/editer' => 'controllers/reglement/edit.php',
+  // '/reglements/modifier' => 'controllers/reglement/update.php',
+  // '/reglements/supprimer' => 'controllers/reglement/destroy.php'
 ];
 
 function routeToController($uri, $routes)

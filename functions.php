@@ -19,6 +19,11 @@ function view($path, $attributes = [])
   require BASE_PATH . 'views/' . $path . '.view.php';
 }
 
+function isFamilleSection($section)
+{
+  return $section !== 'familles' ? $section : '';
+}
+
 function validated(...$inputs)
 {
   $booleans = [];

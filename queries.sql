@@ -19,7 +19,7 @@ CREATE TABLE `article` (
     `designation` VARCHAR(255),
     `prix_ht` DOUBLE(8, 2),
     `tva` DOUBLE(8, 2),
-    `stock` DOUBLE(8, 2),
+    `stock` INT,
     `famille_id` INT,
     FOREIGN KEY (`famille_id`) REFERENCES `famille`(`id`) ON DELETE CASCADE
 );

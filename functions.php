@@ -65,3 +65,20 @@ function checkRequestedMethodExists($method)
 
   return true;
 }
+
+function detectForeignKeys($relationships, $foreignKeys, $fieldName)
+{
+  if (count($relationships) > 0) {
+    foreach (array_keys($relationships) as $key) {
+      if (in_array($key, $foreignKeys) && in_array($fieldName, $foreignKeys)) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+function getRelatedTableNameByFK($foreignKey, $foreignKeys)
+{
+  return ucfirst(array_search($foreignKey, $foreignKeys));
+}

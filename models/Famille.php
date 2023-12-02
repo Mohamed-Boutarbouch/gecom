@@ -67,4 +67,9 @@ class Famille
       'id' => $id
     ]);
   }
+
+  public function getFamilleSelectOptions()
+  {
+    return $this->db->query('SELECT id, famille AS name FROM famille')->fetchAll();
+  }
 }

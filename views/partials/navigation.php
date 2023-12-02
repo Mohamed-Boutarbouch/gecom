@@ -13,5 +13,5 @@
   </ul>
 </nav>
 <p>
-  <a href="/<?= $section ?>/creer">Ajouter</a>
+  <a href="/<?= $section ?>/creer">Ajouter des <?= ucfirst($section) ?></a>
 </p>

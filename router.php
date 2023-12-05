@@ -4,7 +4,7 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 $routes = [
   /* Famille routes */
-  '/' => 'controllers/famille/index.php',
+  '/' => 'controllers/Famille/index.php',
   '/familles/creer' => 'controllers/Famille/create.php',
   '/familles/enregistrer' => 'controllers/Famille/store.php',
   '/familles/editer' => 'controllers/Famille/edit.php',
@@ -35,11 +35,11 @@ $routes = [
 
   /* Bon Livraison routes */
   '/bons_livraisons' => 'controllers/BonLivraison/index.php',
-  '/bons_livraisons' => 'controllers/BonLivraison/create.php',
-  '/bons_livraisons' => 'controllers/BonLivraison/store.php',
-  '/bons_livraisons' => 'controllers/BonLivraison/edit.php',
-  '/bons_livraisons' => 'controllers/BonLivraison/update.php',
-  '/bons_livraisons' => 'controllers/BonLivraison/destroy.php',
+  '/bons_livraisons/creer' => 'controllers/BonLivraison/create.php',
+  '/bons_livraisons/enregistrer' => 'controllers/BonLivraison/store.php',
+  '/bons_livraisons/editer' => 'controllers/BonLivraison/edit.php',
+  '/bons_livraisons/modifier' => 'controllers/BonLivraison/update.php',
+  '/bons_livraisons/supprimer' => 'controllers/BonLivraison/destroy.php',
 
   /* Reglement routes */
   '/reglements' => 'controllers/Reglement/index.php',

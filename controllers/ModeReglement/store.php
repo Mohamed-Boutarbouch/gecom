@@ -3,18 +3,18 @@
 const BASE_PATH = __DIR__ . '/../../';
 
 require(BASE_PATH . 'Database.php');
-require(BASE_PATH . 'models/BonLivraison.php');
+require(BASE_PATH . 'models/ModeReglement.php');
 
-$bonLivraisonModel = new BonLivraison();
+$modeReglementModel = new ModeReglement();
 
-$requiredFields = $bonLivraisonModel->getTableFieldNames(true);
+$requiredFields = $modeReglementModel->getTableFieldNames(true);
 
 try {
   $postValues = extractPostValues($requiredFields['fields']);
   if (validated(...$postValues)) {
-    $bonLivraisonModel->createBonLivraison(...$postValues);
+    $modeReglementModel->createModeReglement(...$postValues);
 
-    redirect('/bons_livraisons');
+    redirect('/modes_reglement');
   } else {
     throwException('Assurez-vous que toutes les saisies sont remplies !');
   }

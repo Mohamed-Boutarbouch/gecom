@@ -3,20 +3,20 @@
 const BASE_PATH = __DIR__ . '/../../';
 
 require(BASE_PATH . 'Database.php');
-require(BASE_PATH . 'models/BonLivraison.php');
+require(BASE_PATH . 'models/ModeReglement.php');
 
-$bonLivraisonModel = new BonLivraison();
+$modeReglementModel = new ModeReglement();
 
 checkRequestedMethodExists('put');
 
-$requiredFields = $bonLivraisonModel->getTableFieldNames();
+$requiredFields = $modeReglementModel->getTableFieldNames();
 
 try {
   $postValues = extractPostValues($requiredFields['fields']);
   if (validated(...$postValues)) {
-    $bonLivraisonModel->updateBonLivraison(...$postValues);
+    $modeReglementModel->updateModeReglement(...$postValues);
 
-    redirect('/bons_livraisons');
+    redirect('/modes_reglement');
   } else {
     throwException('Requête invalide. Paramètres requis manquants.');
   }

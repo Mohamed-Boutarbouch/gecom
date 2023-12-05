@@ -3,21 +3,18 @@
 const BASE_PATH = __DIR__ . '/../../';
 
 require(BASE_PATH . 'Database.php');
-$config = require(BASE_PATH . 'config.php');
+require(BASE_PATH . 'models/ModeReglement.php');
 
-$section = 'mode_reglement';
-$caption = 'La liste des mode_reglements';
+$modeReglementModel = new ModeReglement();
 
-try {
-  $db = new Database($config['database']);
+$currentPageNumber = getCurrentPageNumber($_GET['page'] ?? '');
 
-  $results = $db->query('SELECT * FROM mode_reglement')->fetchAll();
-  view('index', [
-    'results' => $results,
-    'keys' => !empty($results) ? array_keys($results[0]) : [],
-    'section' => $section,
-    'caption' => $caption
-  ]);
-} catch (PDOException $e) {
-  die('Database error: ' . $e->getMessage());
-}
+$modesReglement = $modeReglementModel->getModesReglement($currentPageNumber);
+
+view('index', [
+  'records' => $modesReglement['collection'],
+  'paginate' => $modesReglement['pagination'],
+  'columns' => ModeReglement::COLUMNS,
+  'section' => ModeReglement::SECTION,
+  'caption' => ModeReglement::CAPTION
+]);

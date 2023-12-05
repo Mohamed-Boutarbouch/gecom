@@ -2,35 +2,40 @@
   <fieldset>
     <legend>Modifier <?= $section ?>:</legend>
     <input type="hidden" name="_method" value="PUT" />
-    <?php foreach ($record as $fieldName => $value) : ?>
-      <?php if ($fieldName === 'id') : ?>
-        <label for="<?= $fieldName ?>">Id</label>
-        <input type="text" id="<?= $fieldName ?>" name="<?= $fieldName ?>" value="<?= $value ?>" readonly />
+    <?php foreach ($record['data'] as $fieldKey => $fieldValue) : ?>
+      <?php if ($fieldKey === 'id') : ?>
+        <label for="<?= $fieldKey ?>">Id</label>
+        <input type="text" id="<?= $fieldKey ?>" name="<?= $fieldKey ?>" value="<?= $fieldValue ?>" readonly />
+        <br />
+      <?php elseif (isBooleanValueField($fieldKey)) : ?>
+        <label for="<?= $fieldKey ?>"><?= ucfirst($fieldKey) ?></label>
+        <select name="<?= $fieldKey ?>" id="<?= $fieldKey ?>">
+          <option value="0" <?= $fieldValue === 0 ? 'selected' : '' ?>>Non</option>
+          <option value="1" <?= $fieldValue === 1 ? 'selected' : '' ?>>Oui</option>
+        </select>
+        <br />
+      <?php elseif ($fieldKey === 'date') : ?>
+        <label for="<?= $fieldKey ?>"><?= ucfirst($fieldKey) ?></label>
+        <input type="date" id="<?= $fieldKey ?>" name="<?= $fieldKey ?>" value="<?= $fieldValue ?>" />
+        <br />
+      <?php elseif (!array_key_exists($fieldKey, $record['relationships'])) : ?>
+        <label for="<?= $fieldKey ?>"><?= $fieldKey ?></label>
+        <input type="text" id="<?= $fieldKey ?>" name="<?= $fieldKey ?>" value="<?= $fieldValue ?>">
+        <br />
       <?php else : ?>
-        <?php if ($fieldName === 'admin') : ?>
-          <label for="<?= $fieldName ?>"><?= ucfirst($fieldName) ?></label>
-          <select name="<?= $fieldName ?>" id="<?= $fieldName ?>">
-            <option value="0" <?= $value === 0 ? 'selected' : '' ?>>Non</option>
-            <option value="1" <?= $value === 1 ? 'selected' : '' ?>>Oui</option>
-          </select>
-        <?php elseif (isset($relationships) && detectForeignKeys($relationships, $foreignKeys, $fieldName)) : ?>
-          <?php foreach ($relationships as $key => $relationship) : ?>
-            <label for="<?= $key ?>"><?= getRelatedTableNameByFK($key, $foreignKeys) ?></label>
-            <select id="<?= $key ?>" name="<?= $key ?>">
-              <?php foreach ($relationship as $data) : ?>
-                <option value="<?= $data['id'] ?>" <?= $value === $data['id'] ? 'selected' : '' ?>><?= $data['name'] ?></option>
+        <?php foreach ($record['relationships'] as $relKey => $relValue) : ?>
+          <?php if ($relKey === $fieldKey) : ?>
+            <label for="<?= $fieldKey ?>"><?= ucfirst($fieldKey) ?></label>
+            <select type="text" id="<?= $fieldKey ?>" name="<?= $fieldKey ?>" value="<?= $fieldValue ?>">
+              <?php foreach ($relValue as $option) : ?>
+                <option value="<?= $option['id'] ?>" <?= $option['id'] === $fieldValue ? 'selected' : '' ?>><?= $option['name'] ?></option>
               <?php endforeach; ?>
             </select>
-          <?php endforeach; ?>
-          <br />
-        <?php else : ?>
-          <label for="<?= $fieldName ?>"><?= ucfirst($fieldName) ?></label>
-          <input type="text" id="<?= $fieldName ?>" name="<?= $fieldName ?>" value="<?= $value ?>" />
-        <?php endif; ?>
+            <br />
+          <?php endif; ?>
+        <?php endforeach; ?>
       <?php endif; ?>
-      <br />
     <?php endforeach; ?>
-    <br />
     <button>Edit</button>
   </fieldset>
 </form>

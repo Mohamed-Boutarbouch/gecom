@@ -3,19 +3,17 @@
 const BASE_PATH = __DIR__ . '/../../';
 
 require(BASE_PATH . 'Database.php');
-$config = require(BASE_PATH . 'config.php');
-$db = new Database($config['database']);
+require(BASE_PATH . 'models/ModeReglement.php');
 
-require(BASE_PATH . 'models/Client.php');
-$clientModel = new Client($db);
+$modeReglementModel = new ModeReglement();
 
 checkRequestedMethodExists('delete');
 
 try {
   if (validated($_POST['id'])) {
-    $clientModel->deleteClient($_POST['id']);
+    $modeReglementModel->deleteModeReglement($_POST['id']);
 
-    redirect('/clients');
+    redirect('/modes_reglement');
   } else {
     throwException('Erreur lors de la suppression de l\'enregistrement.');
   }

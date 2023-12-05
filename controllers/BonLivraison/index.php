@@ -1,29 +1,20 @@
 <?php
 
 const BASE_PATH = __DIR__ . '/../../';
-const PER_PAGE = 10;
 
 require(BASE_PATH . 'Database.php');
-$config = require(BASE_PATH . 'config.php');
-$db = new Database($config['database']);
+require(BASE_PATH . 'models/BonLivraison.php');
 
-require(BASE_PATH . 'models/Article.php');
-$articleModel = new Article($db);
+$bonLivraisonModel = new BonLivraison();
 
-$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-$records = $articleModel->getAllArticles($page);
-$totalRecords = $articleModel->getTotalArticleCount();
-$totalPages = ceil($totalRecords / PER_PAGE);
+$currentPageNumber = getCurrentPageNumber($_GET['page'] ?? '');
 
-$columns = ['id', 'designation', 'prix hors taxe', 'TVA', 'stock', 'famille'];
+$bonsLivraisons = $bonLivraisonModel->getBonsLivraisons($currentPageNumber);
 
 view('index', [
-  'records' => $records,
-  'columns' => $columns,
-  'currentPage' => $page,
-  'perPage' => PER_PAGE,
-  'totalPages' => $totalPages,
-  'totalRecords' => $totalRecords,
-  'section' => Article::SECTION,
-  'caption' => Article::CAPTION
+  'records' => $bonsLivraisons['collection'],
+  'paginate' => $bonsLivraisons['pagination'],
+  'columns' => BonLivraison::COLUMNS,
+  'section' => BonLivraison::SECTION,
+  'caption' => BonLivraison::CAPTION
 ]);

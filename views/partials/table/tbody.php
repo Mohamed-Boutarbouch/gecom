@@ -16,7 +16,7 @@
         <button onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement?')">Supprimer</button>
       </form>
     </td>
-    <?php if ($section === 'bon_livraison') : ?>
+    <?php if ($section === 'bons_livraisons') : ?>
       <td>
         <form action="/detail-bl" method="GET">
           <input type="hidden" name="id" value="<?= $record['id'] ?>">

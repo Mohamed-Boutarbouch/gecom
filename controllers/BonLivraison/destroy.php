@@ -3,19 +3,17 @@
 const BASE_PATH = __DIR__ . '/../../';
 
 require(BASE_PATH . 'Database.php');
-$config = require(BASE_PATH . 'config.php');
-$db = new Database($config['database']);
+require(BASE_PATH . 'models/BonLivraison.php');
 
-require(BASE_PATH . 'models/Article.php');
-$articleModel = new Article($db);
+$bonLivraisonModel = new BonLivraison();
 
 checkRequestedMethodExists('delete');
 
 try {
   if (validated($_POST['id'])) {
-    $articleModel->deleteArticle($_POST['id']);
+    $bonLivraisonModel->deleteBonLivraison($_POST['id']);
 
-    redirect('/articles');
+    redirect('/bons_livraisons');
   } else {
     throwException('Erreur lors de la suppression de l\'enregistrement.');
   }

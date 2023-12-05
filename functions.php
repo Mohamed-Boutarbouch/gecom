@@ -66,19 +66,16 @@ function checkRequestedMethodExists($method)
   return true;
 }
 
-function detectForeignKeys($relationships, $foreignKeys, $fieldName)
+function isBooleanValueField($column)
 {
-  if (count($relationships) > 0) {
-    foreach (array_keys($relationships) as $key) {
-      if (in_array($key, $foreignKeys) && in_array($fieldName, $foreignKeys)) {
-        return true;
-      }
-    }
-  }
-  return false;
+  return in_array($column, ['admin', 'regle']);
 }
 
-function getRelatedTableNameByFK($foreignKey, $foreignKeys)
+function getCurrentPageNumber($pageNumber)
 {
-  return ucfirst(array_search($foreignKey, $foreignKeys));
+  if (isset($pageNumber) && $pageNumber !== '') {
+    return $pageNumber;
+  } else {
+    return 1;
+  }
 }

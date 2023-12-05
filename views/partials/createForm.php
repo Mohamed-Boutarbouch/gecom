@@ -1,31 +1,38 @@
 <form action="/<?= $section ?>/enregistrer" method="POST">
   <fieldset>
     <legend>Ajouter <?= $section ?>:</legend>
-    <?php foreach ($columns as $column) : ?>
-      <?php if ($column === 'admin') : ?>
-        <label for="<?= $column ?>"><?= ucfirst($column) ?></label>
-        <select name="<?= $column ?>" id="<?= $column ?>">
+    <?php foreach ($inputFields['fields'] as $fieldName) : ?>
+      <?php if (isBooleanValueField($fieldName)) : ?>
+        <label for="<?= $fieldName ?>"><?= ucfirst($fieldName) ?></label>
+        <select name="<?= $fieldName ?>" id="<?= $fieldName ?>">
           <option value="0">Non</option>
           <option value="1">Oui</option>
         </select>
-      <?php elseif (isset($relationships) && detectForeignKeys($relationships, $foreignKeys, $column)) : ?>
-        <?php foreach ($relationships as $key => $relationship) : ?>
-          <label for="<?= $key ?>"><?= getRelatedTableNameByFK($key, $foreignKeys) ?></label>
-          <select id="<?= $key ?>" name="<?= $key ?>">
-            <option></option>
-            <?php foreach ($relationship as $data) : ?>
-              <option value="<?= $data['id'] ?>"><?= $data['name'] ?></option>
-            <?php endforeach; ?>
-          </select>
-        <?php endforeach; ?>
+        <br />
+      <?php elseif ($fieldName === 'date') : ?>
+        <label for="<?= $fieldName ?>"><?= ucfirst($fieldName) ?></label>
+        <input type="date" id="<?= $fieldName ?>" name="<?= $fieldName ?>" />
+        <br />
+      <?php elseif (!array_key_exists($fieldName, $inputFields['relationships'])) :
+      ?>
+        <label for="<?= $fieldName ?>"><?= $fieldName ?></label>
+        <input type="text" id="<?= $fieldName ?>" name="<?= $fieldName ?>" />
         <br />
       <?php else : ?>
-        <label for="<?= $column ?>"><?= ucfirst($column) ?></label>
-        <input type="text" id="<?= $column ?>" name="<?= $column ?>" />
+        <?php foreach ($inputFields['relationships'] as $relKey => $relValue) : ?>
+          <?php if ($relKey === $fieldName) : ?>
+            <label for="<?= $fieldName ?>"><?= ucfirst($fieldName) ?></label>
+            <select type="text" id="<?= $fieldName ?>" name="<?= $fieldName ?>">
+              <option></option>
+              <?php foreach ($relValue as $option) : ?>
+                <option value="<?= $option['id'] ?>"><?= $option['name'] ?></option>
+              <?php endforeach; ?>
+            </select>
+            <br />
+          <?php endif; ?>
+        <?php endforeach; ?>
       <?php endif; ?>
-      <br />
     <?php endforeach; ?>
-    <br />
     <button>Ajouter</button>
   </fieldset>
 </form>

@@ -1,7 +1,15 @@
 <nav>
   <ul>
+    <li><a href="/">Familles</a></li>
+    <li><a href="/clients">Clients</a></li>
+    <li><a href="/caissiers">Caissiers</a></li>
     <li><a href="/modes_reglement">Mode Reglement</a></li>
-    <li><a href="/bons_livraisons">Bon Livraison</a></li>
+  </ul>
+  <hr />
+  <ul>
+    <li><a href="/articles">Articles</a></li>
+    <li><a href="/bons_livraisons">Bons Livraisons</a></li>
+    <li><a href="/reglements">Reglements</a></li>
   </ul>
 </nav>
 <p>

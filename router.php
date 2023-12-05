@@ -21,9 +21,19 @@ $routes = [
 
   /* Caissier routes */
   '/caissiers' => 'controllers/Caissier/index.php',
+  '/caissiers' => 'controllers/Caissier/create.php',
+  '/caissiers' => 'controllers/Caissier/store.php',
+  '/caissiers' => 'controllers/Caissier/edit.php',
+  '/caissiers' => 'controllers/Caissier/update.php',
+  '/caissiers' => 'controllers/Caissier/destroy.php',
 
   /* Mode reglement routes */
   '/modes_reglement' => 'controllers/ModeReglement/index.php',
+  '/modes_reglement' => 'controllers/ModeReglement/create.php',
+  '/modes_reglement' => 'controllers/ModeReglement/store.php',
+  '/modes_reglement' => 'controllers/ModeReglement/edit.php',
+  '/modes_reglement' => 'controllers/ModeReglement/update.php',
+  '/modes_reglement' => 'controllers/ModeReglement/destroy.php',
 
   /* Article routes */
   '/articles' => 'controllers/Article/index.php',
@@ -43,11 +53,11 @@ $routes = [
 
   /* Reglement routes */
   '/reglements' => 'controllers/Reglement/index.php',
-  // '/reglements/creer' => 'controllers/Reglement/create.php',
-  // '/reglements/enregistrer' => 'controllers/Reglement/store.php',
-  // '/reglements/editer' => 'controllers/Reglement/edit.php',
-  // '/reglements/modifier' => 'controllers/Reglement/update.php',
-  // '/reglements/supprimer' => 'controllers/Reglement/destroy.php'
+  '/reglements/creer' => 'controllers/Reglement/create.php',
+  '/reglements/enregistrer' => 'controllers/Reglement/store.php',
+  '/reglements/editer' => 'controllers/Reglement/edit.php',
+  '/reglements/modifier' => 'controllers/Reglement/update.php',
+  '/reglements/supprimer' => 'controllers/Reglement/destroy.php'
 ];
 
 function routeToController($uri, $routes)

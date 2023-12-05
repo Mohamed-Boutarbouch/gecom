@@ -21,19 +21,19 @@ $routes = [
 
   /* Caissier routes */
   '/caissiers' => 'controllers/Caissier/index.php',
-  '/caissiers' => 'controllers/Caissier/create.php',
-  '/caissiers' => 'controllers/Caissier/store.php',
-  '/caissiers' => 'controllers/Caissier/edit.php',
-  '/caissiers' => 'controllers/Caissier/update.php',
-  '/caissiers' => 'controllers/Caissier/destroy.php',
+  '/caissiers/creer' => 'controllers/Caissier/create.php',
+  '/caissiers/enregistrer' => 'controllers/Caissier/store.php',
+  '/caissiers/editer' => 'controllers/Caissier/edit.php',
+  '/caissiers/modifier' => 'controllers/Caissier/update.php',
+  '/caissiers/supprimer' => 'controllers/Caissier/destroy.php',
 
   /* Mode reglement routes */
   '/modes_reglement' => 'controllers/ModeReglement/index.php',
-  '/modes_reglement' => 'controllers/ModeReglement/create.php',
-  '/modes_reglement' => 'controllers/ModeReglement/store.php',
-  '/modes_reglement' => 'controllers/ModeReglement/edit.php',
-  '/modes_reglement' => 'controllers/ModeReglement/update.php',
-  '/modes_reglement' => 'controllers/ModeReglement/destroy.php',
+  '/modes_reglement/creer' => 'controllers/ModeReglement/create.php',
+  '/modes_reglement/enregistrer' => 'controllers/ModeReglement/store.php',
+  '/modes_reglement/editer' => 'controllers/ModeReglement/edit.php',
+  '/modes_reglement/modifier' => 'controllers/ModeReglement/update.php',
+  '/modes_reglement/supprimer' => 'controllers/ModeReglement/destroy.php',
 
   /* Article routes */
   '/articles' => 'controllers/Article/index.php',

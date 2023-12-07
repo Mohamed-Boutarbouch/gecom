@@ -12,6 +12,11 @@ function dd(...$values)
   die();
 }
 
+function urlIs($value)
+{
+  return $_SERVER['REQUEST_URI'] === $value;
+}
+
 function view($path, $attributes = [])
 {
   extract($attributes);

@@ -1,0 +1,33 @@
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Designation</th>
+      <th>Quantite</th>
+      <th>Prix</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php // foreach ($inputFields as $inputField) : 
+    ?>
+    <tr>
+      <td>1</td>
+      <td>livre</td>
+      <td>2</td>
+      <td>100</td>
+      <td>200</td>
+    </tr>
+    <?php // endforeach; 
+    ?>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>Total</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>600</td>
+    </tr>
+  </tfoot>
+</table>

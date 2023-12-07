@@ -7,7 +7,4 @@
     <?php require 'tbody.php' ?>
   </tbody>
 </table>
-<?php // if ($totalRecords > 10) {
-require 'tfoot.php';
-// } 
-?>
+<?php require 'tfoot.php' ?>

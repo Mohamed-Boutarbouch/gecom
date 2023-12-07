@@ -19,7 +19,7 @@
     <?php if ($section === 'bons_livraisons') : ?>
       <td>
         <form action="/detail-bl" method="GET">
-          <input type="hidden" name="id" value="<?= $record['id'] ?>">
+          <input type="hidden" name="bl-id" value="<?= $record['id'] ?>">
           <button>Detail</button>
         </form>
       </td>

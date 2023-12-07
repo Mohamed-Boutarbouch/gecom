@@ -57,7 +57,10 @@ $routes = [
   '/reglements/enregistrer' => 'controllers/Reglement/store.php',
   '/reglements/editer' => 'controllers/Reglement/edit.php',
   '/reglements/modifier' => 'controllers/Reglement/update.php',
-  '/reglements/supprimer' => 'controllers/Reglement/destroy.php'
+  '/reglements/supprimer' => 'controllers/Reglement/destroy.php',
+
+  /* Reglement routes */
+  '/detail-bl' => 'controllers/DetailBL/index.php'
 ];
 
 function routeToController($uri, $routes)

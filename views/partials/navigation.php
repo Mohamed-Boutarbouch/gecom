@@ -8,8 +8,8 @@
   <hr />
   <ul>
     <li><a href="/articles">Articles</a></li>
-    <li><a href="/bons_livraisons">Bons Livraisons</a></li>
     <li><a href="/reglements">Reglements</a></li>
+    <li><a href="/bons_livraisons">Bons Livraisons</a></li>
   </ul>
 </nav>
 <p>

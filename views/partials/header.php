@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-gray-100">
 
 <head>
   <meta charset="UTF-8">
@@ -10,4 +10,4 @@
 </head>
 
 <body class="h-full">
-  <main class="min-h-full bg-gray-100">
+  <main class="min-h-full">

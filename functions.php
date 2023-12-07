@@ -14,8 +14,11 @@ function dd(...$values)
 
 function urlIs($value)
 {
-  return $_SERVER['REQUEST_URI'] === $value;
+  // dd($value, $_SERVER['REQUEST_URI']);
+  return parse_url($_SERVER['REQUEST_URI'])['path'] === $value;
 }
+
+// urlIs('/caissier');
 
 function view($path, $attributes = [])
 {

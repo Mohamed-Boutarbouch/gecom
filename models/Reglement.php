@@ -7,7 +7,7 @@ class Reglement extends Model
   public const TABLE_NAME = 'reglement';
   public const SECTION = 'reglements';
   public const CAPTION = 'La liste des reglements';
-  public const COLUMNS = ['id', 'mode reglement', 'regle', 'montant', 'date reglement', 'date_bon_livraison'];
+  public const COLUMNS = ['id', 'mode reglement', 'regle', 'montant', 'date reglement', 'date bon livraison'];
 
   protected function getTableName(): string
   {

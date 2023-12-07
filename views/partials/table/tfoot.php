@@ -5,7 +5,7 @@
         <p class="text-sm text-gray-700">
           Page
           <span class="font-medium"><?= $paginate['currentPageNumber'] ?></span>
-          of
+          sur
           <span class="font-medium"><?= $paginate['totalPages'] ?></span>
         </p>
       </div>
@@ -19,7 +19,7 @@
           </a>
 
           <?php
-          if ($paginate['totalPages'] <= 10) {
+          if ($paginate['totalPages'] < 10) {
             for ($counter = 1; $counter <= $paginate['totalPages']; $counter++) {
               if ($counter === $paginate['currentPageNumber']) {
                 echo "<a href='#' class='relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'>$counter</a>";

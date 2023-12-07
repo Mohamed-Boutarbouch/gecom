@@ -12,4 +12,4 @@
     </tbody>
   </table>
 </div>
-<?php require 'tfoot.php' ?>
+<?php require 'pagination.php' ?>

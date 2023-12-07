@@ -1,7 +1,9 @@
 <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
   <div class="md:grid md:grid-cols-3 md:gap-6">
     <div class="mt-5 md:col-span-2 md:mt-0">
+      <a href="/<?= $section ?>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline mb-24">&larr; Retourne</a>
       <form action="/<?= $section ?>/enregistrer" method="POST">
+        <legend class="text-xl mt-2">Ajouter <?= $section ?>:</legend>
         <div class="shadow sm:overflow-hidden sm:rounded-md">
           <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
             <?php foreach ($inputFields['fields'] as $fieldName) : ?>
@@ -40,7 +42,7 @@
                 <?php endforeach; ?>
               <?php endif; ?>
             <?php endforeach; ?>
-            <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+            <div class="px-4 py-3 text-right sm:px-6">
               <button class="inline-flex justify-center rounded-md border border-transparent bg-indigo-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">Ajouter</button>
             </div>
           </div>

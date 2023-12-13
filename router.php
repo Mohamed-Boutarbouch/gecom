@@ -60,7 +60,8 @@ $routes = [
   '/reglements/supprimer' => 'controllers/Reglement/destroy.php',
 
   /* Reglement routes */
-  '/detail-bl' => 'controllers/DetailBL/index.php'
+  '/detail-bl' => 'controllers/DetailBL/index.php',
+  '/detail-bl/search' => 'controllers/DetailBL/show.php'
 ];
 
 function routeToController($uri, $routes)

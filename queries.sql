@@ -1,3 +1,6 @@
+CREATE DATABASE gecom;
+USE gecom;
+
 -- Drop tables if they exist
 DROP TABLE IF EXISTS `reglement`;
 DROP TABLE IF EXISTS `caissier`;
@@ -69,7 +72,34 @@ CREATE TABLE `detail_bl` (
     `id` INT AUTO_INCREMENT PRIMARY KEY,
     `article_id` INT,
     `bl_id` INT,
-    `qte` DOUBLE(8, 2),
+    `qte` INT DEFAULT 1,
     FOREIGN KEY (`article_id`) REFERENCES `article`(`id`) ON DELETE CASCADE,
     FOREIGN KEY (`bl_id`) REFERENCES `BonLivraison`(`id`) ON DELETE CASCADE
 );
+
+
+-- Inserting data into article and BonLivraison tables
+INSERT INTO famille (famille) VALUES ('Electronics'), ('Clothing');
+
+INSERT INTO article (designation, prix_ht, tva, stock, famille_id)
+VALUES ('Laptop', 1000.00, 0.20, 50, 1), ('T-Shirt', 20.00, 0.10, 100, 2);
+
+INSERT INTO client (nom, prenom, adresse, ville)
+VALUES ('John', 'Doe', '123 Main St', 'Cityville');
+
+INSERT INTO caissier (nom, prenom, poste, admin)
+VALUES ('Alice', 'Smith', 'Cashier', 1);
+
+INSERT INTO BonLivraison (date, regle, client_id, caissier_id)
+VALUES ('2023-01-01', 1, 1, 1);
+
+INSERT INTO mode_reglement (mode) VALUES ('Cash');
+
+INSERT INTO reglement (date, montant, bl_id, mode_id)
+VALUES ('2023-01-01', 1000.00, 1, 1);
+
+-- Inserting data into detail_bl table
+INSERT INTO detail_bl (article_id, bl_id, qte)
+VALUES
+    (1, 1, 2),
+    (2, 1, 5);

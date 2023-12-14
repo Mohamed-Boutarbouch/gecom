@@ -1,7 +1,7 @@
 <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
   <div class="md:grid md:grid-cols-3 md:gap-6">
     <div class="mt-5 md:col-span-2 md:mt-0">
-      <a href="/<?= $section ?>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline mb-24">&larr; Retourne</a>
+      <a href="/<?= isFamilleSection($section) ?>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline mb-24">&larr; Retourne</a>
       <form action="/<?= $section ?>/enregistrer" method="POST">
         <legend class="text-xl mt-2">Ajouter <?= $section ?>:</legend>
         <div class="shadow sm:overflow-hidden sm:rounded-md">

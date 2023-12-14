@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS gecom;
+
 CREATE DATABASE gecom;
 USE gecom;
 

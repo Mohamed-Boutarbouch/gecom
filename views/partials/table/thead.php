@@ -2,7 +2,5 @@
   <?php foreach ($columns as $column) : ?>
     <th class="text-left p-3 px-5 capitalize text-gray-300"><?= $column ?></th>
   <?php endforeach; ?>
-  <?php if ($section !== 'detail-bl') : ?>
-    <th class="text-left p-3 px-5 capitalize text-gray-300" colspan="<?= $section === 'bons_livraisons' ? '3' : '2' ?>">Action</th>
-  <?php endif; ?>
+  <th class="text-left p-3 px-5 capitalize text-gray-300" colspan="<?= $section === 'bons_livraisons' ? '3' : ($section === 'detail-bl' ? '1' : '2') ?>">Action</th>
 </tr>
